@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Cofferun </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootst
+rap/3.3.6/css/bootstrap.min.css">
+    <!--  jQuery modal -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+     <style>
+       form :focus:required:invalid {
+         border-color: #a94442;
+       }
+     </style>
+
+  </head>
+  <body class = "container">
+    <header>
+      <h1>CoffeRun</h1>
+    </header>
+
+  <!-- Submitting order -->
+  <section>
+    <div class="panel panel-default">
+      <div class="panel-body">
+          <form data-coffee-order="form" class="" action="index.html" method="post">
+            <div class="form-group">
+              <labe for="coffeeOrder">Coffee Order</labe>
+              <input class="form-control" required  name="coffee" id="coffeeOrder"
+                        autofocus pattern="[a-zA-Z\s]+">
+            <!--  The regular expression [a-zA-Z\s]+ matches any character
+            from the set consisting of lowercase letters (a-z),
+            uppercase letters (A-Z), and whitespace characters (\s),
+            repeated one or more times (+).  -->
+            </div>
+            <div class="form-group">
+              <label for="emailInput">Email</label>
+              <input class="form-control" type="email" name="emailAddress"
+                id="emailInput" value="" required placeholder="email@who.com">
+            </div>
+            <div class="radio">
+                <label>
+                  <input type="radio" name="size" value="short">
+                  Short
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="size" value="tall" checked>
+                  Tall
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="size" value="grande">
+                  Grande
+                </label>
+              </div>
+              <div class="form-group">
+              <label for="flavorShot">Flavor Shot</label>
+              <select id="flavorShot" class="form-control" name="flavor">
+                <option value="">None</option>
+                <option value="caramel">Caramel</option>
+                <option value="almond">Almond</option>
+                <option value="mocha">Mocha</option>
+              </select>
+            </div>
+            <div class="form-group">
+             <label for="strengthLevel">Caffeine Rating</label>
+             <input name="strength" id="strengthLevel" type="range" value="40">
+           </div>
+
+
+           <button type="submit" class="btn btn-default">Submit</button>
+            <button type="reset" class="btn btn-default">Reset</button>
+          </form>
+      </div>
+    </div>
+
+    <!-- Pending order -->
+    <div class="panel panel-default">
+        <div class="panel-body">
+          <h4>Pending Orders:</h4>
+          <div data-coffee-order="checklist"></div>
+        </div>
+      </div>
+
+    <!-- Payment -->
+    <div class="panel panel-default">
+        <div class="panel-body">
+          <h4>Payment:</h4>
+          <!-- <div data-coffee-payment="payment"></div> -->
+
+          <form data-coffee-payment="payment">
+            <div class="form-group">
+              <label for="coffeePayment">Name:</label>
+              <input class="form-control" name="name" id="coffeePayment" autofocus>
+            </div>
+            <div class="form-group">
+              <label for="coffeePayment">Email:</label>
+              <input class="form-control" placeholder="email@who.com" type="email" name="email" id="coffeePayment" autofocus>
+            </div>
+            <div class="form-group">
+              <label for="coffeePayment">Credit card number:</label>
+              <input class="form-control" name="coffee" id="coffeePayment" autofocus>
+              <label for="coffeePayment">Security code:</label>
+              <input class="form-control" name="creditCard" id="coffeePayment" autofocus>
+              <label for="coffeePayment">Expire:</label>
+              <input class="form-control" placeholder="mm/dd//yyyy" name="creditCard" id="coffeePayment" autofocus>
+            </div>
+
+            <div id="ex1" class="modal">
+              <p>Thank you for your payment.</p>
+              <a href="#" rel="modal:close">Close</a>
+            </div>
+            <button type="submit">
+              <p><a href="#ex1" rel="modal:open">Submit payment</a></p>
+            </button>
+
+        </form>
+        </div>
+      </div>
+  </section>
+
+    <!-- add jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"
+    charset="utf-8"></script>
+
+    <!-- validation -->
+     <script src="scripts/validation.js" charset="utf-8"></script>
+    <script src="scripts/checklist.js" charset="utf-8"></script>
+    <script src="scripts/formhandler.js" charset="utf-8"></script>
+    <!-- jQuery ajax -->
+    <script src="scripts/remotedatastore.js" charset="utf-8"></script>
+    <script src="scripts/datastore.js" charset="utf-8"></script>
+    <script src="scripts/truck.js" charset="utf-8"></script>
+    <script src="scripts/main.js" charset="utf-8"></script>
+    <!-- payment -->
+    <script src="scripts/payment.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+    <!-- dpd.js will not appear in public because it is generated at runtime -->
+    <!-- <script src="/dpd.js" type="text/javascript"></script> -->
+
+  </body>
+</html>
